@@ -38,3 +38,32 @@ title = 'test4',
 `body` = 'test4';
 
 SELECT * FROM article;
+
+INSERT INTO article(regDate, title, `body`)
+SELECT NOW(), CONCAT('제목_', RAND()), CONCAT('내용_', RAND())
+FROM article;
+
+
+
+# `member` 테이블 생성
+CREATE TABLE `member`(
+	id INT UNSIGNED NOT NULL PRIMARY KEY AUTO_INCREMENT,
+	regDate DATETIME NOT NULL,
+	loginId VARCHAR(100) NOT NULL,
+	loginPw VARCHAR(100) NOT NULL,
+	`name` VARCHAR(100) NOT NULL
+);
+
+DESC `member`;
+
+# `member` 데이터 추가
+INSERT INTO `member`
+SET regDate = NOW(),
+loginId = 'test',
+loginPw = 'test',
+`name` = 'test';
+
+SELECT * FROM `member`;
+
+# `member` 테이블 삭제
+DROP TABLE `member`;
