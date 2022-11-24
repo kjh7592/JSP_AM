@@ -59,10 +59,10 @@
             로그인 아이디 : <input name="loginId" placeholder="아이디를 입력해주세요" type="text" />
         </div>
         <div>
-            로그인 비밀번호 : <input name="loginPw" placeholder="비밀번호를 입력해주세요" type="text" />
+            로그인 비밀번호 : <input name="loginPw" placeholder="비밀번호를 입력해주세요" type="password" />
         </div>
         <div>
-            로그인 비밀번호 확인 : <input name="loginPwConfirm" placeholder="비밀번호 확인을 입력해주세요" type="text" />
+            로그인 비밀번호 확인 : <input name="loginPwConfirm" placeholder="비밀번호 확인을 입력해주세요" type="password" />
         </div>
         <div>
             이름 : <input name="name" placeholder="이름을 입력해주세요" type="text" />
