@@ -50,7 +50,6 @@
     		}
     		
     		form.submit();
-    		
     	}
     </script>
     
