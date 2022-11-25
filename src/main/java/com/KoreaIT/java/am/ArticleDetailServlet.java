@@ -22,7 +22,6 @@ import jakarta.servlet.http.HttpServletResponse;
 public class ArticleDetailServlet extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
 		response.setContentType("text/html; charset=UTF-8");
 		
 		Connection conn = null;
@@ -36,12 +35,13 @@ public class ArticleDetailServlet extends HttpServlet {
 		try {
 			conn = DriverManager.getConnection(Config.getDBUrl(), Config.getDBUser(), Config.getDBPassword());
 
-			SecSql sql = SecSql.from("SELECT *");
-			
 			int id = Integer.parseInt(request.getParameter("id"));
 			
-			sql.append("FROM article");
-			sql.append("WHERE id = ?", id);
+			SecSql sql = SecSql.from("SELECT A.*, M.name AS writerName");
+			sql.append("FROM article AS A");
+			sql.append("INNER JOIN `member` AS M");
+			sql.append("ON A.memberId = M.id");
+			sql.append("WHERE A.id = ?", id);
 			
 			Map<String, Object> articleRow = DBUtil.selectRow(conn, sql);
 
